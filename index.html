@@ -378,7 +378,8 @@ const INSTR = {
 for (const s of [49,51,53,55,59,61,63,65,67,69]) INSTR[s] = {r:`${s}~${s+1}`,ko:"다음을 읽고 물음에 답하십시오.",vi:"Đọc và trả lời câu hỏi."};
 
 /* ---------- storage ---------- */
-const KEY = "topik1-mock-v1";
+const KEY = "topik1-cbt-v2";
+try{ ["topik1-mock-v1","topik1-mock-v1-ok"].forEach(k => localStorage.removeItem(k)); }catch(e){}
 function load(){ try{ return JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){ return {}; } }
 function save(){ try{ localStorage.setItem(KEY, JSON.stringify(store)); }catch(e){} }
 let store = load(); store.results = store.results || {}; store.session = store.session || null;
@@ -469,10 +470,12 @@ function renderHome(){
       </div>
     </section>
     <p class="foot" style="padding-top:24px">Đề do biên soạn mới theo đúng dạng câu hỏi của TOPIK I, không phải đề thi chính thức của NIIED. Kết quả được lưu trên trình duyệt của bạn.</p>
+    <div class="row" style="padding-bottom:36px"><button class="btn" id="resetAll">기록 초기화 · Xóa toàn bộ kết quả</button></div>
   </div>`;
   document.querySelectorAll("[data-open]").forEach(b => b.onclick = () => openDialog(+b.dataset.open));
   $("#go1").onclick = () => s ? enterSection() : openDialog(0);
   $("#goList").onclick = () => $("#list").scrollIntoView({behavior:"smooth"});
+  $("#resetAll").onclick = () => ask("기록 초기화", "Xóa toàn bộ điểm và bài đang làm dở của 10 đề trên máy này?", "초기화 · Xóa", () => { store = {results:{}, session:null}; save(); renderHome(); toast("초기화 완료 · Đã xóa"); });
   scrollTo(0,0);
 }
 
