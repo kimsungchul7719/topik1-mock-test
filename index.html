@@ -295,6 +295,55 @@ button:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--omr);outli
 .mini{border:1px solid var(--rule);background:var(--paper);border-radius:999px;padding:4px 12px;font-size:12.5px;font-weight:600;display:inline-flex;gap:6px;align-items:center}
 .mini svg{width:11px;height:11px;fill:currentColor}
 .foot{font-size:12px;color:var(--ink-3);padding-block:0 32px}
+
+/* ---------- CBT ---------- */
+.cbt-grid{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:18px;padding-block:18px 60px;align-items:start}
+@media (max-width:900px){.cbt-grid{grid-template-columns:minmax(0,1fr)}}
+.cbt-card{display:grid;gap:12px;min-width:0}
+.cbt-head{display:flex;align-items:baseline;gap:10px}
+.cbt-no{font-size:15px;color:var(--ink-2)}.cbt-no b{font-size:26px;color:var(--ink);margin-left:4px}
+.cbt-pts{font-size:12.5px;color:var(--ink-3)}
+.cbt-pos{margin-left:auto;font-weight:600;font-size:14px;background:var(--paper);border:1px solid var(--rule);border-radius:999px;padding:2px 12px}
+.cbt-prog{height:5px;background:var(--rule-2);border-radius:3px;overflow:hidden}.cbt-prog i{display:block;height:100%;background:var(--c2)}
+.cbt-paper{padding:22px clamp(16px,3.5vw,36px) 26px}
+.bogi-d{margin:4px 0 6px;font-family:var(--sans);font-size:13px}
+.bogi-d summary{cursor:pointer;color:var(--c2);font-weight:600}
+.bogi-d .bogi{font-family:var(--serif);margin-top:18px}
+.listen-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0 4px;font-family:var(--sans);font-size:13px;color:var(--ink-2)}
+.qplay.big{font-size:15px;padding:8px 16px 8px 12px;border-radius:12px;margin:0}
+.qplay.big svg{width:14px;height:14px}
+.cbt-choices{display:grid;gap:8px;margin-top:10px}
+.cbt-ch{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;border:1.5px solid var(--rule);background:var(--paper);border-radius:10px;padding:12px 14px;font-family:var(--serif);font-size:17px;line-height:1.55}
+.cbt-ch:hover{border-color:var(--ink-3)}
+.cbt-ch .mk{flex:none;display:inline-grid;place-items:center;width:1.6em;height:1.6em;border-radius:50%;border:1.5px solid var(--ink-3);font-family:var(--sans);font-size:13px;font-weight:700}
+.cbt-ch.sel{border-color:var(--c2);background:var(--c2t)}
+.cbt-ch.sel .mk{background:var(--c2);border-color:var(--c2);color:#fff}
+.cbt-pics{margin-left:0}
+.pic .mk{display:inline-grid;place-items:center;width:1.5em;height:1.5em;border-radius:50%;border:1.3px solid currentColor;font-family:var(--sans);font-size:12px;font-weight:700;position:absolute;top:6px;left:8px}
+.cbt-pics .pic.sel{border-color:var(--c2);background:var(--c2t)}
+.cbt-pics .pic.sel .mk{background:var(--c2);border-color:var(--c2);color:#fff}
+.cbt-status{font-size:13.5px;color:var(--ink-2);padding:8px 12px;border-radius:8px;background:var(--rule-2)}
+.cbt-status.ok{background:var(--good-tint);color:var(--good);font-weight:600}
+.cbt-status.draft{background:var(--c3t);color:var(--warn)}
+.cbt-act{display:grid;grid-template-columns:auto 1fr auto;gap:8px;position:sticky;bottom:0;background:var(--ground);padding-block:10px calc(10px + env(safe-area-inset-bottom,0px))}
+.cbt-act .btn{padding:12px 16px}
+.cbt-act .btn.big{font-size:16px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.cbt-nav{position:sticky;top:120px;background:var(--paper);border:1px solid var(--rule);border-radius:12px;padding:14px;display:grid;gap:12px}
+@media (max-width:900px){.cbt-nav{position:static}}
+.nav-h{display:flex;justify-content:space-between;align-items:baseline;font-size:13px}.nav-h span{color:var(--ink-3)}
+.nav-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px}
+@media (max-width:900px){.nav-grid{grid-template-columns:repeat(8,minmax(0,1fr))}}
+.nv{border:1.5px solid var(--rule);background:var(--paper);border-radius:7px;padding:5px 0;font-size:12.5px;font-weight:600;font-variant-numeric:tabular-nums}
+.nv.saved{background:var(--c2);border-color:var(--c2);color:#fff}
+.nv.draft{background:var(--c3t);border-color:var(--c3);color:var(--ink)}
+.nv.cur{outline:2px solid var(--c1);outline-offset:1px}
+.nav-legend{display:flex;flex-wrap:wrap;gap:10px;font-size:11.5px;color:var(--ink-2)}
+.lg{display:inline-block;width:10px;height:10px;border-radius:3px;border:1.5px solid var(--rule);margin-right:4px;vertical-align:-1px}
+.lg.saved{background:var(--c2);border-color:var(--c2)}.lg.draft{background:var(--c3t);border-color:var(--c3)}
+.toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--good);color:#fff;padding:9px 18px;border-radius:999px;font-weight:600;font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:60}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){.toast{transition:none}}
 </style>
 
 <div id="app"></div>
@@ -356,7 +405,7 @@ const ICON = {
 /* ---------- Home ---------- */
 const COLORS = ["var(--c1)","var(--c2)","var(--c4)","var(--c5)","var(--c3)"];
 function renderHome(){
-  stopClock(); aud.pause(); qa.pause();
+  stopClock(); aud.pause(); qa.pause(); document.onkeydown = null;
   const s = store.session;
   const done = Object.keys(store.results).length;
   $("#app").innerHTML = `
@@ -406,8 +455,8 @@ function renderHome(){
       <div class="hsec-h"><span class="ic" style="background:var(--c4)">3</span><h2 id="h-how">Cách luyện đề<small>이용 방법</small></h2></div>
       <div class="steps">
         <div class="step"><span class="sn" style="background:var(--c1)">1</span><b>Chọn đề và chế độ</b><p>Làm cả bài 100 phút, hoặc chỉ phần Nghe hay chỉ phần Đọc.</p></div>
-        <div class="step"><span class="sn" style="background:var(--c2)">2</span><b>Nghe và làm bài</b><p>Bấm 🎧 bên cạnh số câu để nghe từng câu, hoặc phát cả file như thi thật. Đồng hồ đếm ngược ở trên cùng.</p></div>
-        <div class="step"><span class="sn" style="background:var(--c4)">3</span><b>Chấm điểm và xem giải thích</b><p>Xem điểm, cấp đạt được, lời thoại, giải thích tiếng Việt và từ vựng của từng câu.</p></div>
+        <div class="step"><span class="sn" style="background:var(--c2)">2</span><b>Thi trên máy từng câu</b><p>Chọn đáp án → bấm <b>저장</b> (Lưu) → tự chuyển sang câu tiếp theo. Câu nghe tự phát, bấm 🎧 để nghe lại. Đồng hồ đếm ngược ở trên cùng.</p></div>
+        <div class="step"><span class="sn" style="background:var(--c4)">3</span><b>전체 저장 → Điểm & lời giải</b><p>Làm xong bấm <b>전체 저장</b> để chấm. Xem điểm, cấp đạt được, lời thoại, giải thích tiếng Việt và từ vựng của từng câu.</p></div>
       </div>
     </section>
 
@@ -485,7 +534,7 @@ function openDialog(i){
   el.className = "scrim";
   el.innerHTML = `<div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dlg-h">
     <h2 id="dlg-h">제${i+1}회 모의고사</h2>
-    <p>Chọn cách làm bài. Đồng hồ đếm ngược sẽ chạy như thi thật; hết giờ phần nào sẽ tự chuyển/nộp bài.</p>
+    <p>Thi trên máy: mỗi màn hình một câu, chọn đáp án rồi bấm 저장 để lưu và sang câu tiếp. Đồng hồ đếm ngược như thi thật; hết giờ sẽ tự chuyển phần / nộp bài.</p>
     ${resumable ? `<button class="opt" data-m="resume" style="border-color:var(--omr)"><b>Tiếp tục bài đang làm</b><span>${s.sec==="L"?"Phần Nghe":"Phần Đọc"} · còn ${fmt(s.left[s.sec])}</span><i>▶</i></button>` : ""}
     <button class="opt" data-m="full"><b>Thi thử toàn bộ</b><span>Nghe 40 phút → Đọc 60 phút · 200 điểm</span><i>100′</i></button>
     <button class="opt" data-m="L"><b>Chỉ phần Nghe (듣기)</b><span>Câu 1–30 · có file nghe</span><i>40′</i></button>
@@ -513,109 +562,137 @@ function openDialog(i){
 let clock = null, lastTick = 0, aud;
 function stopClock(){ if (clock) clearInterval(clock); clock = null; }
 
+/* ---------- CBT exam (one question per screen) ---------- */
+const INS_KEYS = Object.keys(INSTR).map(Number).sort((a,b)=>a-b);
+const insFor = n0 => INSTR[INS_KEYS.filter(k => k <= n0).pop()];
+function secList(s){ return test(s.t).groups.filter(g => g.sec===s.sec).flatMap(g => g.qs.map(q => ({q, g}))); }
+function toast(msg){
+  let t = $("#toast"); if (!t){ t = document.createElement("div"); t.id = "toast"; t.className = "toast"; t.setAttribute("role","status"); document.body.appendChild(t); }
+  t.textContent = msg; t.classList.add("on"); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove("on"), 1400);
+}
+function ask(title, msg, ok, onOk, cancel = "Quay lại · 취소"){
+  const el = document.createElement("div"); el.className = "scrim";
+  el.innerHTML = `<div class="dialog" role="dialog" aria-modal="true"><h2>${title}</h2><p style="white-space:pre-line">${msg}</p>
+    <div class="row" style="justify-content:flex-end"><button class="btn" data-x>${cancel}</button><button class="btn primary" data-ok>${ok}</button></div></div>`;
+  document.body.appendChild(el);
+  el.querySelector("[data-x]").onclick = () => el.remove();
+  el.querySelector("[data-ok]").onclick = () => { el.remove(); onOk(); };
+  el.querySelector("[data-ok]").focus();
+}
+
 function enterSection(){
-  const s = store.session, t = test(s.t), sec = s.sec;
-  const groups = t.groups.filter(g => g.sec===sec);
-  const nums = groups.flatMap(g => g.nums);
-  const segs = DATA.segs[s.t];
+  const s = store.session; s.sel = s.sel || {}; s.cur = s.cur || 0;
+  const list = secList(s); if (s.cur >= list.length) s.cur = list.length - 1;
+  const sec = s.sec, toR = sec==="L" && s.mode==="full";
   $("#app").innerHTML = `
   <div class="bar"><div class="wrap">
-      <div class="t-name"><b>제${s.t+1}회 · ${sec==="L"?"듣기 (Nghe)":"읽기 (Đọc)"}</b>TOPIK I 실전 모의고사</div>
-      <div class="clock" id="clock"><div class="c-lbl">Thời gian còn lại</div><div class="c-time num" id="ctime">${fmt(s.left[sec])}</div></div>
-      <div class="b-act">
-        <button class="btn" id="exit">Thoát</button>
-        <button class="btn primary" id="next">${sec==="L" && s.mode==="full" ? "Sang phần Đọc" : "Nộp bài"}</button>
-      </div>
+      <div class="t-name"><b>제${s.t+1}회 · ${sec==="L"?"듣기 (Nghe)":"읽기 (Đọc)"}</b>온라인 모의시험 · Thi trên máy</div>
+      <div class="clock" id="clock"><div class="c-lbl">Thời gian còn lại · 남은 시간</div><div class="c-time num" id="ctime">${fmt(s.left[sec])}</div></div>
+      <div class="b-act"><button class="btn" id="exit">Thoát</button><button class="btn primary" id="final">${toR ? "읽기로 이동" : "전체 저장"}</button></div>
     </div>
     <div class="tprog"><i id="tbar" style="width:${100*s.left[sec]/TIME[sec]}%"></i></div>
   </div>
-  ${sec==="L" ? `<div class="player"><div class="wrap">
-      <button class="play" id="play" aria-label="Phát file nghe">${ICON.play}</button>
-      <div class="p-info">
-        <div class="p-top"><span class="p-now" id="pnow">Nhấn ▶ để bắt đầu file nghe</span><span class="num" id="ptime">${fmt(s.audioPos||0)} / ${fmt(segs?.duration||0)}</span></div>
-        <div class="p-track"><i id="pbar"></i></div>
-      </div>
-      <label class="chk"><input type="checkbox" id="follow" checked> Tự cuộn theo câu đang nghe</label>
-  </div></div>` : ""}
-  <div class="wrap exam">
-    <main class="paper" id="paper">
-      <div class="sec-title"><h2>${sec==="L" ? "TOPIK Ⅰ 듣기 (1번 ~ 30번)" : "TOPIK Ⅰ 읽기 (31번 ~ 70번)"}</h2><span>${sec==="L" ? "Mỗi câu được đọc 2 lần" : ""}</span></div>
-      ${groups.map(g => renderGroup(g, sec, s.ans)).join("")}
-      <div class="nav-sec"><button class="btn primary" id="next2">${sec==="L" && s.mode==="full" ? "Sang phần Đọc →" : "Nộp bài"}</button></div>
-    </main>
-    <aside class="omr" id="omr" aria-label="Phiếu trả lời">
-      <div class="omr-h" id="omrh"><b>답안지 · Phiếu trả lời</b><span><span class="num" id="cnt"></span> <span class="omr-toggle">▴</span></span></div>
-      <div class="omr-grid">${nums.map(n => `<div class="omr-row"><button class="on num" data-go="${n}">${n}</button>${[1,2,3,4].map(k=>`<button class="bub${s.ans[n]===k?" f":""}" data-b="${n}-${k}" aria-label="Câu ${n} đáp án ${k}">${k}</button>`).join("")}</div>`).join("")}</div>
-      <div class="omr-f"><button class="btn primary" id="next3">${sec==="L" && s.mode==="full" ? "Sang phần Đọc" : "Nộp bài"}</button></div>
+  <div class="wrap cbt-grid">
+    <main class="cbt-card" id="card"></main>
+    <aside class="cbt-nav" aria-label="Danh sách câu hỏi">
+      <div class="nav-h"><b>문항 · Câu hỏi</b><span class="num" id="savedCnt"></span></div>
+      <div class="nav-grid" id="navGrid"></div>
+      <div class="nav-legend"><span><i class="lg saved"></i>Đã lưu</span><span><i class="lg draft"></i>Chọn, chưa lưu</span><span><i class="lg"></i>Chưa làm</span></div>
+      ${sec==="L" ? `<label class="chk"><input type="checkbox" id="autoplay" ${s.noAuto?"":"checked"}> Tự phát file nghe khi sang câu mới</label>` : ""}
+      <button class="btn primary" id="final2" style="width:100%;padding:11px">${toR ? "읽기로 이동 · Sang phần Đọc" : "전체 저장 · Lưu toàn bộ & chấm điểm"}</button>
     </aside>
   </div>`;
-  updCount(nums);
-  $("#paper").onclick = e => {
+  drawCard(false); drawNav();
+
+  $("#card").onclick = e => {
     const pq = e.target.closest("[data-q]"); if (pq) return playQ(pq, s.t);
-    const b = e.target.closest("[data-c]"); if (!b) return;
-    const [n,k] = b.dataset.c.split("-").map(Number); choose(n,k,nums);
+    const c = e.target.closest("[data-k]"); if (c) return pick(+c.dataset.k);
+    if (e.target.closest("#prev")) return go(s.cur - 1, true);
+    if (e.target.closest("#skip")) return go(s.cur + 1, true);
+    if (e.target.closest("#saveBtn")) return doSave();
   };
-  $("#omr").onclick = e => {
-    const b = e.target.closest("[data-b]");
-    if (b){ const [n,k] = b.dataset.b.split("-").map(Number); choose(n,k,nums); return; }
-    const g = e.target.closest("[data-go]");
-    if (g){ document.getElementById("q"+g.dataset.go)?.scrollIntoView({behavior:"smooth",block:"start"}); $("#omr").classList.remove("open"); return; }
-    if (e.target.closest("#omrh") && innerWidth<=960) $("#omr").classList.toggle("open");
-  };
-  const advance = () => {
-    const un = nums.filter(n => !s.ans[n]).length;
-    const msg = sec==="L" && s.mode==="full"
-      ? `Chuyển sang phần Đọc? Bạn sẽ không quay lại phần Nghe được.${un?`\nCòn ${un} câu chưa trả lời.`:""}`
-      : `Nộp bài và chấm điểm?${un?`\nCòn ${un} câu chưa trả lời.`:""}`;
-    if (confirm(msg)) finishSection();
-  };
-  $("#next").onclick = $("#next2").onclick = $("#next3").onclick = advance;
+  $("#navGrid").onclick = e => { const b = e.target.closest("[data-i]"); if (b) go(+b.dataset.i, true); };
+  $("#final").onclick = $("#final2").onclick = () => finalPrompt(false);
   $("#exit").onclick = () => { save(); renderHome(); };
-  if (sec==="L") setupPlayer(segs, groups);
-  lastTick = Date.now(); stopClock();
-  clock = setInterval(tick, 250);
+  const ap = $("#autoplay"); if (ap) ap.onchange = () => { s.noAuto = !ap.checked; save(); };
+  document.onkeydown = e => {
+    if (document.querySelector(".scrim") || e.target.closest("input,textarea")) return;
+    if (/^[1-4]$/.test(e.key)) pick(+e.key);
+    else if (e.key==="Enter") doSave();
+    else if (e.key==="ArrowRight") go(s.cur + 1, true);
+    else if (e.key==="ArrowLeft") go(s.cur - 1, true);
+  };
+  lastTick = Date.now(); stopClock(); clock = setInterval(tick, 250);
   scrollTo(0,0);
 }
 
-function renderGroup(g, sec, ans){
-  const n0 = g.nums[0], ins = INSTR[n0];
-  let h = "";
-  if (ins) h += `<div class="instr">※ [${ins.r}] ${esc(ins.ko)}<span class="vi">${esc(ins.vi)}</span></div>${ins.bogi?`<div class="bogi">${esc(ins.bogi)}</div>`:""}`;
-  if (g.passage) h += renderPassage(g.passage);
-  if (sec==="L" && g.nums.length>1) h += `<div class="listen-note">🎧 Nghe đoạn hội thoại/bài nói rồi trả lời câu ${g.nums.join(", ")}</div>`;
-  for (const q of g.qs) h += renderQ(q, ans?.[q.n], null, n0);
-  return `<section class="grp" data-g="${n0}">${h}</section>`;
+function drawCard(auto){
+  const s = store.session, list = secList(s), {q, g} = list[s.cur], n0 = g.nums[0], ins = insFor(n0);
+  const picked = s.sel[q.n] ?? s.ans[q.n], saved = s.ans[q.n], isL = s.sec==="L";
+  $("#card").innerHTML = `
+    <div class="cbt-head"><span class="cbt-no">문제 <b class="num">${q.n}</b></span><span class="cbt-pts num">${PTS[q.n]}점</span><span class="cbt-pos num">${s.cur+1} / ${list.length}</span></div>
+    <div class="cbt-prog"><i style="width:${100*(s.cur+1)/list.length}%"></i></div>
+    <div class="paper cbt-paper">
+      <div class="instr" style="margin-top:0">※ [${ins.r}] ${esc(ins.ko)}<span class="vi">${esc(ins.vi)}</span></div>
+      ${ins.bogi ? `<details class="bogi-d"><summary>보기 · Xem ví dụ</summary><div class="bogi">${esc(ins.bogi)}</div></details>` : ""}
+      ${isL ? `<div class="listen-row"><button class="qplay big" data-q="${n0}" aria-label="Nghe câu ${q.n}">${ICON.play}<span class="ql">듣기</span> <span class="qc"></span></button><span>Bấm để nghe lại${g.nums.length>1 ? ` · câu ${g.nums.join(" – ")} dùng chung một bài nghe` : ""}</span></div>` : ""}
+      ${g.passage ? renderPassage(g.passage) : ""}
+      <div class="q-stem" style="margin-top:14px"><span class="qn num">${q.n}.</span><span>${q.stem ? deco(q.stem) : ""}</span></div>
+      ${q.box ? `<div class="box">${deco(q.box)}</div>` : ""}
+      ${q.pics
+        ? `<div class="pics cbt-pics">${q.pics.map((p,i)=>`<button class="pic${picked===i+1?" sel":""}" data-k="${i+1}"><span class="mk">${i+1}</span><span class="emo" aria-hidden="true">${esc(p.e)}</span><span class="cap">${esc(p.c)}</span></button>`).join("")}</div>`
+        : `<div class="cbt-choices">${q.choices.map((c,i)=>`<button class="cbt-ch${picked===i+1?" sel":""}" data-k="${i+1}"><span class="mk">${i+1}</span><span>${deco(c)}</span></button>`).join("")}</div>`}
+    </div>
+    <div class="cbt-status ${saved && picked===saved ? "ok" : picked ? "draft" : ""}" id="stat">${statusText(picked, saved)}</div>
+    <div class="cbt-act">
+      <button class="btn" id="prev" ${s.cur===0?"disabled":""}>◀ 이전</button>
+      <button class="btn primary big" id="saveBtn" ${picked?"":"disabled"}>저장 · Lưu ${s.cur < list.length-1 ? "→ 다음" : ""}</button>
+      <button class="btn" id="skip" ${s.cur===list.length-1?"disabled":""}>다음 ▶</button>
+    </div>`;
+  if (auto && isL && q.n===n0 && !s.noAuto) playQ($("#card [data-q]"), s.t);
 }
-function renderPassage(p){
-  if (p.kind==="notice") return `<div class="psg notice">${p.title?`<h4>${esc(p.title)}</h4>`:""}${p.body.map(l=>`<p>${deco(l)}</p>`).join("")}</div>`;
-  if (p.kind==="email"){
-    const head = p.body.filter(l => /^(받는 사람|보내는 사람|제목)\s*:/.test(l));
-    const body = p.body.filter(l => !head.includes(l));
-    return `<div class="psg email"><div class="eh">${p.title?`<b>${esc(p.title)}</b>`:""}${head.map(l=>`<span>${esc(l)}</span>`).join("")}</div><div class="eb">${body.map(l=>`<p>${deco(l)}</p>`).join("")}</div></div>`;
-  }
-  return `<div class="psg">${p.body.map(l=>`<p>${deco(l)}</p>`).join("")}</div>`;
+function statusText(picked, saved){
+  if (saved && picked===saved) return `✔ 저장됨 · Đã lưu đáp án ${MK[saved-1]}`;
+  if (picked) return `Đã chọn ${MK[picked-1]} — bấm <b>저장</b> để lưu${saved ? ` (đang lưu ${MK[saved-1]})` : ""}`;
+  return "Chọn một đáp án rồi bấm 저장";
 }
-function choiceClass(q){
-  const L = Math.max(...(q.choices||[]).map(c => c.length));
-  return L <= 7 ? "short" : L <= 18 ? "long" : "xl";
+function drawNav(){
+  const s = store.session, list = secList(s);
+  $("#navGrid").innerHTML = list.map(({q},i) => `<button class="nv${s.ans[q.n]?" saved":""}${s.sel[q.n]!=null?" draft":""}${i===s.cur?" cur":""}" data-i="${i}" aria-label="Câu ${q.n}">${q.n}</button>`).join("");
+  $("#savedCnt").textContent = `${list.filter(x => s.ans[x.q.n]).length}/${list.length} đã lưu`;
 }
-function renderQ(q, picked, correct, n0){
-  const cls = k => correct==null ? (picked===k?" sel":"") : (k===correct?" right":(picked===k?" wrong":""));
-  const dis = correct!=null ? " disabled" : "";
-  let h = `<div class="q" id="q${q.n}"><div class="q-stem"><span class="qn num">${q.n}.</span><span>${q.n<=30 && n0 ? `<button class="qplay" data-q="${n0}" aria-label="Nghe câu ${q.n}">${ICON.play}<span class="ql">듣기</span> <span class="qc"></span></button> ` : ""}${q.stem?deco(q.stem):""}${q.stem?` <span class="num" style="font-family:var(--sans);font-weight:400;font-size:12px;color:var(--ink-3)">(${PTS[q.n]}점)</span>`:`<span class="num" style="font-family:var(--sans);font-weight:400;font-size:12px;color:var(--ink-3)">(${PTS[q.n]}점)</span>`}</span></div>`;
-  if (q.box) h += `<div class="box">${deco(q.box)}</div>`;
-  if (q.pics) h += `<div class="pics">${q.pics.map((p,i)=>`<button class="pic${cls(i+1)}" data-c="${q.n}-${i+1}"${dis}><span class="ch" style="padding:0;border:0;background:none"><span class="mk">${i+1}</span></span><span class="emo" aria-hidden="true">${esc(p.e)}</span><span class="cap">${esc(p.c)}</span></button>`).join("")}</div>`;
-  else h += `<div class="choices ${choiceClass(q)}">${q.choices.map((c,i)=>`<button class="ch${cls(i+1)}" data-c="${q.n}-${i+1}"${dis}><span class="mk">${i+1}</span><span>${deco(c)}</span></button>`).join("")}</div>`;
-  return h + `</div>`;
+function pick(k){
+  const s = store.session, {q} = secList(s)[s.cur];
+  if (k === s.ans[q.n]) delete s.sel[q.n]; else s.sel[q.n] = k;
+  save();
+  document.querySelectorAll("#card [data-k]").forEach(b => b.classList.toggle("sel", +b.dataset.k===k));
+  $("#saveBtn").disabled = false;
+  const st = $("#stat"); st.innerHTML = statusText(k, s.ans[q.n]); st.className = "cbt-status " + (k===s.ans[q.n] ? "ok" : "draft");
+  drawNav();
 }
-
-function choose(n,k,nums){
-  const s = store.session; s.ans[n] = s.ans[n]===k ? undefined : k; if (s.ans[n]===undefined) delete s.ans[n];
-  document.querySelectorAll(`[data-c^="${n}-"]`).forEach(b => b.classList.toggle("sel", +b.dataset.c.split("-")[1]===s.ans[n]));
-  document.querySelectorAll(`[data-b^="${n}-"]`).forEach(b => b.classList.toggle("f", +b.dataset.b.split("-")[1]===s.ans[n]));
-  updCount(nums); save();
+function go(i, auto){
+  const s = store.session, list = secList(s);
+  if (i < 0 || i >= list.length) return;
+  qa.pause(); s.cur = i; save(); drawCard(auto); drawNav();
+  $("#card").scrollIntoView({block:"start"}); scrollTo({top:0});
 }
-function updCount(nums){ const s = store.session; $("#cnt").textContent = `${nums.filter(n=>s.ans[n]).length}/${nums.length}`; }
+function doSave(){
+  const s = store.session, list = secList(s), {q} = list[s.cur];
+  const k = s.sel[q.n] ?? s.ans[q.n]; if (!k) return;
+  const wasNew = !s.ans[q.n], wasLast = s.cur === list.length - 1;
+  s.ans[q.n] = k; delete s.sel[q.n]; save();
+  toast(`${q.n}번 저장 완료 · Đã lưu`);
+  if (!wasLast) go(s.cur + 1, true); else { drawCard(false); drawNav(); }
+  if (wasLast || (wasNew && list.every(x => s.ans[x.q.n]))) finalPrompt(true);
+}
+function finalPrompt(auto){
+  const s = store.session, list = secList(s);
+  const unsaved = list.filter(x => !s.ans[x.q.n]).map(x => x.q.n);
+  const toR = s.sec==="L" && s.mode==="full";
+  const miss = unsaved.length ? `\nCòn ${unsaved.length} câu chưa lưu: ${unsaved.slice(0,12).join(", ")}${unsaved.length>12?"…":""}\n(Câu chưa lưu sẽ không được tính điểm.)` : "\nBạn đã lưu tất cả các câu.";
+  if (toR) ask("듣기 종료 · Hết phần Nghe", `Chuyển sang phần Đọc (60 phút)? Bạn sẽ không quay lại phần Nghe được.${miss}`, "읽기로 이동", finishSection);
+  else ask(auto ? "모든 문제 저장 완료" : "전체 저장 · Nộp bài", `Lưu toàn bộ bài làm và xem điểm cuối cùng cùng lời giải?${miss}`, "전체 저장 · Chấm điểm", finishSection);
+}
 
 function tick(){
   const s = store.session; if (!s) return stopClock();
@@ -629,38 +706,9 @@ function tick(){
   if (left <= 0){ stopClock(); alert(s.sec==="L" && s.mode==="full" ? "Hết giờ phần Nghe. Chuyển sang phần Đọc." : "Hết giờ! Bài làm được nộp tự động."); finishSection(); }
 }
 
-function setupPlayer(segs, groups){
-  const s = store.session;
-  if (!segs){ $("#pnow").textContent = "Không tìm thấy file nghe"; return; }
-  aud.src = "audio/" + segs.file; aud.onended = null;
-  const starts = groups.map(g => ({n:g.nums[0], nums:g.nums, ...segs.segs[g.nums[0]]}));
-  const setIcon = () => $("#play").innerHTML = aud.paused ? ICON.play : ICON.pause;
-  aud.addEventListener("loadedmetadata", () => { if (s.audioPos) aud.currentTime = s.audioPos; }, {once:true});
-  $("#play").onclick = () => { if (aud.paused){ qa.pause(); aud.play().catch(()=>{}); } else aud.pause(); };
-  aud.onplay = aud.onpause = setIcon;
-  let cur = null;
-  aud.ontimeupdate = () => {
-    if (store.session?.sec !== "L") return;
-    const t = aud.currentTime; s.audioPos = t;
-    $("#ptime").textContent = `${fmt(t)} / ${fmt(segs.duration)}`;
-    $("#pbar").style.width = (100*t/segs.duration)+"%";
-    const g = [...starts].reverse().find(x => t >= x.start - 0.2);
-    const label = !g ? "Hướng dẫn chung" : t > g.end ? `Câu ${g.nums.join("–")} · thời gian trả lời` : `Đang nghe câu ${g.nums.join("–")} · ${t < g.p2s ? "lần 1" : "lần 2"}`;
-    $("#pnow").textContent = label;
-    const n = g?.n ?? null;
-    if (n !== cur){
-      document.querySelectorAll(".q.live").forEach(e => e.classList.remove("live"));
-      if (n){ g.nums.forEach(x => document.getElementById("q"+x)?.classList.add("live"));
-        if ($("#follow")?.checked) document.querySelector(`[data-g="${n}"]`)?.scrollIntoView({behavior:"smooth",block:"start"}); }
-      cur = n;
-    }
-  };
-  aud.onended = () => { $("#pnow").textContent = "File nghe đã kết thúc · kiểm tra lại đáp án"; setIcon(); };
-}
-
 function finishSection(){
   const s = store.session; stopClock(); aud.pause(); qa.pause();
-  if (s.sec==="L" && s.mode==="full"){ s.sec = "R"; save(); return enterSection(); }
+  if (s.sec==="L" && s.mode==="full"){ s.sec = "R"; s.cur = 0; save(); return enterSection(); }
   const t = test(s.t), score = {L:0,R:0};
   for (const q of allQs(t)) if (s.ans[q.n]===q.ans) score[secOf(q.n)] += PTS[q.n];
   store.results[s.t] = {mode:s.mode, L:score.L, R:score.R, ans:s.ans, at:Date.now()};
@@ -671,7 +719,7 @@ function finishSection(){
 /* ---------- Results ---------- */
 let rvFilter = "all";
 function renderResults(i){
-  stopClock(); aud.pause();
+  stopClock(); aud.pause(); qa.pause(); document.onkeydown = null;
   const r = store.results[i], t = test(i), segs = DATA.segs[i];
   const qs = allQs(t).filter(q => r.mode==="full" || secOf(q.n)===r.mode);
   const right = qs.filter(q => r.ans[q.n]===q.ans).length;
@@ -686,7 +734,7 @@ function renderResults(i){
     <section class="res-head">
       <div class="scorecard">
         <div>
-          <div class="eyebrow">${full ? "Tổng điểm" : r.mode==="L" ? "Điểm phần Nghe" : "Điểm phần Đọc"}</div>
+          <div class="eyebrow">최종 점수 · ${full ? "Điểm cuối cùng" : r.mode==="L" ? "Điểm phần Nghe" : "Điểm phần Đọc"}</div>
           <div class="total num">${full ? total : (r.mode==="L" ? r.L : r.R)}<small>/${full?200:100}</small></div>
           ${full ? `<div class="verdict"><span class="pill ${lv.c}">${lv.t}</span></div>` : `<div class="verdict"><span class="pill">Làm cả 2 phần để xét cấp</span></div>`}
         </div>
@@ -697,7 +745,7 @@ function renderResults(i){
         </div>
       </div>
       <div class="row" style="justify-content:space-between">
-        <h2 style="margin:0;font-family:var(--serif);font-size:22px">Xem lại & giải thích</h2>
+        <h2 style="margin:0;font-family:var(--serif);font-size:22px">풀이 해설 · Lời giải chi tiết</h2>
         <div class="filters" role="group" aria-label="Lọc câu hỏi">
           <button class="btn" data-f="all" aria-pressed="${rvFilter==="all"}">Tất cả</button>
           <button class="btn" data-f="wrong" aria-pressed="${rvFilter==="wrong"}">Câu sai (${qs.length-right})</button>
