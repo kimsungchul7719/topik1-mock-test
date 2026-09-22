@@ -694,6 +694,29 @@ function finalPrompt(auto){
   else ask(auto ? "모든 문제 저장 완료" : "전체 저장 · Nộp bài", `Lưu toàn bộ bài làm và xem điểm cuối cùng cùng lời giải?${miss}`, "전체 저장 · Chấm điểm", finishSection);
 }
 
+function renderPassage(p){
+  if (p.kind==="notice") return `<div class="psg notice">${p.title?`<h4>${esc(p.title)}</h4>`:""}${p.body.map(l=>`<p>${deco(l)}</p>`).join("")}</div>`;
+  if (p.kind==="email"){
+    const head = p.body.filter(l => /^(받는 사람|보내는 사람|제목)\s*:/.test(l));
+    const body = p.body.filter(l => !head.includes(l));
+    return `<div class="psg email"><div class="eh">${p.title?`<b>${esc(p.title)}</b>`:""}${head.map(l=>`<span>${esc(l)}</span>`).join("")}</div><div class="eb">${body.map(l=>`<p>${deco(l)}</p>`).join("")}</div></div>`;
+  }
+  return `<div class="psg">${p.body.map(l=>`<p>${deco(l)}</p>`).join("")}</div>`;
+}
+function choiceClass(q){
+  const L = Math.max(...(q.choices||[]).map(c => c.length));
+  return L <= 7 ? "short" : L <= 18 ? "long" : "xl";
+}
+function renderQ(q, picked, correct, n0){
+  const cls = k => correct==null ? (picked===k?" sel":"") : (k===correct?" right":(picked===k?" wrong":""));
+  const dis = correct!=null ? " disabled" : "";
+  let h = `<div class="q" id="q${q.n}"><div class="q-stem"><span class="qn num">${q.n}.</span><span>${q.n<=30 && n0 ? `<button class="qplay" data-q="${n0}" aria-label="Nghe câu ${q.n}">${ICON.play}<span class="ql">듣기</span> <span class="qc"></span></button> ` : ""}${q.stem?deco(q.stem):""}${q.stem?` <span class="num" style="font-family:var(--sans);font-weight:400;font-size:12px;color:var(--ink-3)">(${PTS[q.n]}점)</span>`:`<span class="num" style="font-family:var(--sans);font-weight:400;font-size:12px;color:var(--ink-3)">(${PTS[q.n]}점)</span>`}</span></div>`;
+  if (q.box) h += `<div class="box">${deco(q.box)}</div>`;
+  if (q.pics) h += `<div class="pics">${q.pics.map((p,i)=>`<button class="pic${cls(i+1)}" data-c="${q.n}-${i+1}"${dis}><span class="ch" style="padding:0;border:0;background:none"><span class="mk">${i+1}</span></span><span class="emo" aria-hidden="true">${esc(p.e)}</span><span class="cap">${esc(p.c)}</span></button>`).join("")}</div>`;
+  else h += `<div class="choices ${choiceClass(q)}">${q.choices.map((c,i)=>`<button class="ch${cls(i+1)}" data-c="${q.n}-${i+1}"${dis}><span class="mk">${i+1}</span><span>${deco(c)}</span></button>`).join("")}</div>`;
+  return h + `</div>`;
+}
+
 function tick(){
   const s = store.session; if (!s) return stopClock();
   const now = Date.now(), dt = (now - lastTick)/1000; lastTick = now;
